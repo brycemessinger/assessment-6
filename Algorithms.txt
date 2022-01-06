@@ -1,0 +1,83 @@
+ALGORITHMS
+
+What is an algorithm
+a set of rules to be followed
+
+algorithms are language independent
+
+example: maze
+if able to move left, go left
+else if able to move forward, go forward
+else move right.
+
+solutions: which solutions does this maze represent
+guarantee: is a solution guaranteed? not all guarantee
+human doable: can a human do it
+memory free: can this algorithm be written without requiring additional memory
+
+pseudocode: process of laying out the logic in an easy to read and understand way, not necessarily in code
+
+Many notable algorithms
+you many not need to create a new algorithm, however you do need to chose the one that best fits  the scenario
+
+Not at the junior level 
+usually reserved from upper mid to high level engineers like project managers
+
+
+CAPSTONE
+build an app from start to finish
+DEADLINE: 1/5
+make a demo video to show off the application
+ideas: chooose a previos lab from foundations to build on, or create your own idea
+REQUIREMENTS
+planning documentation
+interactive front end
+3 main features
+customer styling
+a connection to a server and makes requests from the front end 
+2-3 minute presentation
+
+
+submit plan
+build core features of the app, then add more if you have more time
+
+CHECKLIST
+remember you dont need to include every single item! 14 is the minimum
+the required items are starred
+
+PLANNING:
+-project includes a wireframe for each view
+-project includes a list of mvp features *REUIRED*
+-project includes a data model
+
+MVP:
+app has at least 3 main features*
+front end makes a request to the server and hanldes the response*
+front end is interactive*
+app has custom styling*
+(also inlude a plan of how project will achieve at least 70 points
+
+FRONT END
+- at least 5 semantic tags*
+- app includes 1 view
+- app includes 1+ additional view
+- styling includes flexbox
+- at least 1 view is responsive
+- styling includes animations
+
+SERVER
+app inludes a get enpoint
+app iuncludes a post endpoint and handler function
+app includes put
+app includes a delete
+
+DATABASE	
+project include a seed file or function
+app uses 1 table
+app uses an additional 1+ tables
+
+PRESENTATION
+-discusses project purpose and demonstration MVP*
+-does not discuss broken unimplemented features
+-recording is between 2-3 minutes
+

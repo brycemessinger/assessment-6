@@ -4,14 +4,27 @@ const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+    accessToken: '',
+    captureUncaught: true,
+    captureUnhandledRejections: true
+})
+rollbar.log('Hello World')
+
 app.use(express.json())
 
-app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname, '../assessment-qa-devops/public/index.html'))
+app.get('/', (req,res) => {
+    console.log('test 1')
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+    rollbar.info('file served successfully')
 })
-// app.get('/', function(req,res){
-//     res.sendFile(path.join(__dirname, '../assessment-qa-devops/public/index.js'))
-// })
+app.get('/styles', (req,res) => {
+    res.sendFile(path.join(__dirname, '/public/index.css'))
+})
+app.get('/js', (req,res) => {
+    res.sendFile(path.join(__dirname, '/public/index.js'))
+})
 
 app.get('/api/robots', (req, res) => {
     try {
@@ -55,12 +68,15 @@ app.post('/api/duel', (req, res) => {
         if (compHealthAfterAttack > playerHealthAfterAttack) {
             playerRecord.losses++
             res.status(200).send('You lost!')
+            rollbar.info('The computer won')
         } else {
             playerRecord.losses++
+            rollbar.info('The Player Won')
             res.status(200).send('You won!')
         }
     } catch (error) {
         console.log('ERROR DUELING', error)
+        rollbar.info('Something went wrong loading the duel')
         res.sendStatus(400)
     }
 })
@@ -69,6 +85,7 @@ app.get('/api/player', (req, res) => {
     try {
         res.status(200).send(playerRecord)
     } catch (error) {
+        rollbar.log('Failed to get player stats')
         console.log('ERROR GETTING PLAYER STATS', error)
         res.sendStatus(400)
     }
